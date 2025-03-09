@@ -1,20 +1,34 @@
 package com.example.myapplication2;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity implements FragmentA.OnFragmentAListener, FragmentB.OnFragmentBListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        Button buttonOpenThird = findViewById(R.id.button_open_third_activity);
-        buttonOpenThird.setOnClickListener(v -> {
-            Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
-            startActivity(intent);
-        });
+        if (savedInstanceState == null) {
+            loadFragment(new FragmentA());
+        }
+    }
+
+    public void loadFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container_second, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void onOpenFragmentB() {
+        loadFragment(new FragmentB());
+    }
+
+    @Override
+    public void onBackToFragmentA() {
+        getSupportFragmentManager().popBackStack(); // Возвращаемся к FragmentA
     }
 }
