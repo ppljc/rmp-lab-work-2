@@ -3,9 +3,9 @@ package com.example.myapplication2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements MyFragment.OnFragmentInteractionListener {
+public class MainActivity extends BaseActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,14 +22,5 @@ public class MainActivity extends AppCompatActivity implements MyFragment.OnFrag
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             startActivity(intent);
         });
-    }
-
-    @Override
-    public void onButtonClicked() {
-        SecondFragment secondFragment = new SecondFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, secondFragment)
-                .addToBackStack(null)
-                .commit();
     }
 }

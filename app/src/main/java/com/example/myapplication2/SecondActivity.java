@@ -1,10 +1,10 @@
 package com.example.myapplication2;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-public class SecondActivity extends AppCompatActivity implements FragmentA.OnFragmentAListener, FragmentB.OnFragmentBListener {
+public class SecondActivity extends BaseActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,15 +20,5 @@ public class SecondActivity extends AppCompatActivity implements FragmentA.OnFra
                 .replace(R.id.fragment_container_second, fragment)
                 .addToBackStack(null)
                 .commit();
-    }
-
-    @Override
-    public void onOpenFragmentB() {
-        loadFragment(new FragmentB());
-    }
-
-    @Override
-    public void onBackToFragmentA() {
-        getSupportFragmentManager().popBackStack(); // Возвращаемся к FragmentA
     }
 }

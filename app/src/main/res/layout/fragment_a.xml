@@ -5,9 +5,17 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <Button
-        android:id="@+id/button_open_b"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/go_to_fragment_b"/>
+        android:text="Это FragmentA"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="16dp"/>
+
+    <Button
+        android:id="@+id/button_open_fragment_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Открыть FragmentB"/>
 </LinearLayout>

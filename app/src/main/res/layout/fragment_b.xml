@@ -5,9 +5,17 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <Button
-        android:id="@+id/button_back_a"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/back_to_fragment_a"/>
+        android:text="Это FragmentB"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="16dp"/>
+
+    <Button
+        android:id="@+id/button_back_to_a"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Назад в FragmentA"/>
 </LinearLayout>
